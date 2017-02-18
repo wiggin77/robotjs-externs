@@ -1,4 +1,4 @@
-Externs for [RobotJS](http://robotjs.io/).  RobotJS is a desktop automation library for Node.js.  
+Haxe externs for [RobotJS](http://robotjs.io/).  RobotJS is a desktop automation library for Node.js.  
 
 Inject keystrokes and mouse moves into a Node.js application.  Also capture mouse position and screen pixels.
 
@@ -10,7 +10,7 @@ npm install robotjs
 ```
 
 ## Building RobotJS
-`npm` will install prebuilt binaries for WindowsMac, and Linux. If you want to build yourself, see [here](http://robotjs.io/docs/building).
+`npm` will install prebuilt binaries for Windows, Mac, and Linux. If you want to build yourself, see [here](http://robotjs.io/docs/building).
 
 To build for Electron see [here](http://robotjs.io/docs/electron).
 
