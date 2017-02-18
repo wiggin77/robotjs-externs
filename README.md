@@ -10,7 +10,7 @@ npm install robotjs
 ```
 
 ## Building RobotJS
-`npm` will install prebuilt binaries for Windows, Mac, and Linux. If you want to build yourself, see [here](http://robotjs.io/docs/building).
+`npm` will install prebuilt binaries for Windows, Mac, and Linux. If you want to build it yourself, see [here](http://robotjs.io/docs/building).
 
 To build for Electron see [here](http://robotjs.io/docs/electron).
 
