@@ -1,0 +1,5 @@
+language: haxe
+sudo: false
+hxml:
+	- build.hxml
+
