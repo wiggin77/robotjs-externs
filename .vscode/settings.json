@@ -1,0 +1,23 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+	// Haxe extension
+	"haxe.displayConfigurations": [
+		["build.hxml"]
+	],
+
+	// Codedox settings	
+	"codedox": {
+		"fileheader": {
+			"templates": {
+				"*": [
+					"${license_mit}"
+				]
+			},
+			"params": {
+				"haxe": {
+					"company": "Wiggin77"
+				}
+			}
+		}
+	}
+}

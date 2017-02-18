@@ -1,0 +1,8 @@
+-cp src
+-debug
+-js out/robotjs.js
+
+js.robotjs.Robot
+js.robotjs.RobotHelper
+
+

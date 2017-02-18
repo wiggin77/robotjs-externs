@@ -1,0 +1,12 @@
+{
+  "name": "robotjs-externs",
+  "url" : "https://github.com/wiggin77/robotjs-externs/",
+  "license": "MIT",
+  "tags": ["extern", "robotjs", "nodejs"],
+  "description": "Externs for RobotJS. (http://robotjs.io/)",
+  "version": "1.0.0",
+  "classPath": "src",
+  "releasenote": "Initial release.",
+  "contributors": ["wiggin77"],
+  "dependencies": {  }
+}
