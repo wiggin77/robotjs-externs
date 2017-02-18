@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/wiggin77/robotjs-externs.svg?branch=master)](https://travis-ci.org/wiggin77/robotjs-externs)
+=========
 Haxe externs for [RobotJS](http://robotjs.io/).  RobotJS is a desktop automation library for Node.js.  
 
 Inject keystrokes and mouse moves into a Node.js application.  Also capture mouse position and screen pixels.
