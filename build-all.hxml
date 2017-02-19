@@ -1,0 +1,13 @@
+
+# Build lib
+-cp src
+-debug
+-js out/robotjs.js
+js.robotjs.Robot
+js.robotjs.RobotHelper
+
+--next
+
+-cmd cd test/simple
+-cmd haxe build-test-simple.hxml
+
