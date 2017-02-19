@@ -1,0 +1,16 @@
+{
+	"name": "simple-test",
+	"version": "0.0.1",
+	"description": "Simple test app for RobotJS",
+	"main": "./test.js",
+	"author": {
+		"name": "Wiggin77 (wiggin77@warpmail.net)"
+	},
+	"license": "MIT",
+	"dependencies": {
+		"robotjs": "^0.4.5"
+	},
+	"devDependencies": {
+		"node-gyp": "3.5.0"
+	}
+}

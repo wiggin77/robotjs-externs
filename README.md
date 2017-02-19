@@ -35,8 +35,8 @@ class Test {
 
         for (x in 0...width)
         {
-            y = height * Math.sin((twoPI * x) / width) + height;
-            robot.moveMouse(x, y);
+            var y = Std.int(height * Math.sin((twoPI * x) / width) + height);
+            Robot.moveMouse(x, y);
         }    
     }
 }
