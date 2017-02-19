@@ -1,0 +1,7 @@
+-cp test/simple
+-cp src
+-debug
+-js test/simple/test.js
+-main Test
+
+
