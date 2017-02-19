@@ -2,4 +2,6 @@ language: haxe
 sudo: false
 hxml:
   - build.hxml
+  - test/simple/build-test-simple.hxml
+  
 
