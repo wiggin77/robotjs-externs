@@ -7,9 +7,9 @@ env:
   - CXX=g++-4.8
 
 before_install: 
-  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-  - sudo apt-get update
-  - sudo apt-get install g++-4.8 libxtst-dev libpng++-dev 
+  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+  - sudo apt-get update -q
+  - sudo apt-get install g++-4.8 libxtst-dev libpng++-dev -y
   - nvm install node
   #- sudo npm install -g node-gyp
 
