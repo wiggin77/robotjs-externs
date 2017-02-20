@@ -34,7 +34,7 @@ class Test
 		}
 		catch(e:Dynamic)
 		{
-			iRet = -1
+			iRet = -1;
 			trace("Exception: " + Std.string(e));
 		}
 		Sys.exit(iRet);
