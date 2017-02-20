@@ -4,11 +4,12 @@ git:
   depth: 3
 
 env:
-  - CXX=g++-4.6
+  - CXX=g++-4.8
 
 before_install: 
+  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test
   - sudo apt-get update
-  - sudo apt-get install g++-4.6 libxtst-dev libpng++-dev 
+  - sudo apt-get install g++-4.8 libxtst-dev libpng++-dev 
   - nvm install node
   #- sudo npm install -g node-gyp
 
