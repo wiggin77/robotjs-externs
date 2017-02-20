@@ -26,6 +26,7 @@ class Test
 {
 	public static function main()
 	{
+		var iRet = 0;
 		try
 		{
 			Test.mouseTest();
@@ -33,8 +34,10 @@ class Test
 		}
 		catch(e:Dynamic)
 		{
+			iRet = -1
 			trace("Exception: " + Std.string(e));
 		}
+		Sys.exit(iRet);
 	}
 
 	private static function mouseTest() : Void

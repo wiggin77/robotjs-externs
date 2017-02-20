@@ -20,7 +20,7 @@ script:
   # Build simple test
   - cd test/simple
   - haxe build-test-simple.hxml
-  - cd ../..
 
   # Run simple test
+  - node test.js
   

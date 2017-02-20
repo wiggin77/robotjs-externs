@@ -2,7 +2,7 @@
 {
 	// Haxe extension
 	"haxe.displayConfigurations": [
-		["build.hxml"]
+		["build.hxml", "test/simple/build-test-simple.hxml"]
 	],
 
 	// Codedox settings	
