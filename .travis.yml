@@ -2,10 +2,25 @@ language: haxe
 sudo: false
 
 install:
+
+  # Install Haxelib libs
   - yes | haxelib install build.hxml
   - yes | haxelib install test/simple/build-test-simple.hxml
+ 
+  # Install for simple test 
+  - cd test/simple
+  - npm install
+  - cd ../..
 
 script:
+
+  # Build lib
   - haxe build.hxml
+
+  # Build simple test
   - cd test/simple
   - haxe build-test-simple.hxml
+  - cd ../..
+
+  # Run simple test
+  
