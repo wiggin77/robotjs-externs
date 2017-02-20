@@ -1,5 +1,5 @@
 language: haxe
-sudo: false
+sudo: required
 git:
   depth: 3
 
@@ -7,10 +7,10 @@ env:
   - CXX=g++-4.8
 
 before_install: 
-  - apt get update
-  - apt-get install g++-4.8 libxtst-dev libpng++-dev 
-  - nvm install node
-  #- npm install -g node-gyp
+  - sudo apt get update
+  - sudo apt-get install g++-4.8 libxtst-dev libpng++-dev 
+  - sudo nvm install node
+  #- sudo npm install -g node-gyp
 
 install:
 
