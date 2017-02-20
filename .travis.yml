@@ -1,7 +1,11 @@
 language: haxe
 sudo: false
-hxml:
-  - build.hxml
-  - build-test-simple.hxml
 
+install:
+  - yes | haxelib install build.hxml
+  - yes | haxelib install test/simple/build-test-simple.hxml
 
+script:
+  - haxe build.hxml
+  - cd test/simple
+  - haxe build-test-simple.hxml
