@@ -1,5 +1,10 @@
 language: haxe
 sudo: false
+git:
+  depth: 3
+
+before_install: 
+  - nvm install node
 
 install:
 
@@ -22,5 +27,5 @@ script:
   - haxe build-test-simple.hxml
 
   # Run simple test
-  - node test.js
+  - nvm run node test.js
   
