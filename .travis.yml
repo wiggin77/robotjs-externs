@@ -9,7 +9,7 @@ env:
 before_install: 
   - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
   - sudo apt-get update -q
-  - sudo apt-get install g++-4.8 libxtst-dev libpng++-dev -y
+  - sudo apt-get install g++-4.8 libxtst-dev libpng++-dev -y -q
   - nvm install node
   #- sudo npm install -g node-gyp
 
@@ -23,6 +23,13 @@ install:
   - cd test/simple
   - npm install
   - cd ../..
+
+before_script:
+
+  # Need GUI
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
 
 script:
 
