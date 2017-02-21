@@ -1,0 +1,41 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Ext (vscode-electron)",
+            "type": "extensionHost",
+            "request": "launch",
+            "runtimeExecutable": "${execPath}",
+            "args": [
+                "--extensionDevelopmentPath=${workspaceRoot}/test/vscode-electron"
+            ],
+            "stopOnEntry": false,
+            "sourceMaps": true,
+            "outFiles": [
+				"${workspaceRoot}/test/vscode-electron/**/*.js"
+			],
+			"preLaunchTask": "build-vscode-test",
+			"internalConsoleOptions": "openOnSessionStart",
+			"smartStep": true
+        },
+        {
+            "name": "Launch Test (vscode-electron)",
+            "type": "extensionHost",
+            "request": "launch",
+            "runtimeExecutable": "${execPath}",
+            "args": [
+                "--extensionDevelopmentPath=${workspaceRoot}/test/vscode-electron",
+                "--extensionTestsPath=${workspaceRoot}/test"
+            ],
+            "stopOnEntry": false,
+            "sourceMaps": true,
+            "outFiles": [
+				"${workspaceRoot}/test/vscode-electron/**/*.js"
+			],
+			"preLaunchTask": "build-vscode-test",
+			"internalConsoleOptions": "openOnSessionStart",
+			"smartStep": true
+        }
+    ]
+}
+
