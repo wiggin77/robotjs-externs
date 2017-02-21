@@ -1,0 +1,16 @@
+{
+	"name": "vscode-electron-test",
+	"version": "0.0.1",
+	"description": "Test app for VSCode using RobotJS",
+	"main": "./testrobot.js",
+	"author": {
+		"name": "Wiggin77 (wiggin77@warpmail.net)"
+	},
+	"license": "MIT",
+	"dependencies": {
+		"robotjs": "^0.4.5"
+	},
+	"devDependencies": {
+		"node-gyp": "3.5.0"
+	}
+}
