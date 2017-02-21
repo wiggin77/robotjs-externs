@@ -9,8 +9,11 @@ Test to ensure RobotJS is working within a Visual Studio Code extension.
 ## Build
 From this directory...
 ```
-npm install
+cd ../..
 haxe build-test-vscode.hxml
+
+cd test/vscode-electron
+npm install
 
 code --extensionDevelopmentPath=.
 ```

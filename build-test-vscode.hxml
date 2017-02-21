@@ -1,0 +1,8 @@
+-cp src
+-cp test/vscode-electron
+-lib vscode
+-debug
+-js test/vscode-electron/testrobot.js
+TestRobot
+
+
