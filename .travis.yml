@@ -3,6 +3,11 @@ sudo: true
 git:
   depth: 3
 
+notifications:
+  email:
+    on_success: always
+    on_failure: always
+
 env:
   - CXX=g++-4.8
 
