@@ -1,16 +1,35 @@
 {
-	"name": "vscode-electron-test",
+	"name": "vscode-electron-test-extension",
+	"displayName": "Test Extension for RobotJS",
 	"version": "0.0.1",
-	"description": "Test app for VSCode using RobotJS",
+	"description": "Test Extension for VSCode using RobotJS",
+	"publisher": "Wiggin77",
+    "license": "MIT",
 	"main": "./testrobot.js",
 	"author": {
 		"name": "Wiggin77 (wiggin77@warpmail.net)"
 	},
-	"license": "MIT",
+	"engines": {
+		"vscode": "^1.4.0"
+	},
+    "activationEvents": [
+		"onCommand:robottest.testRobot"
+	],
+	"contributes": {
+		"commands":[
+			{
+				"command": "robottest.testRobot",
+				"title": "Robot Test Runner"
+			}
+		]
+	},
 	"dependencies": {
 		"robotjs": "^0.4.5"
 	},
 	"devDependencies": {
 		"node-gyp": "3.5.0"
+	},
+	"scripts": {
+		"rebuild": "npm rebuild --runtime=electron --target=1.4.6 --disturl=https://atom.io/download/atom-shell --abi=48"
 	}
 }

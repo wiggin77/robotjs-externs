@@ -23,6 +23,7 @@ package ;
 
 import vscode.ExtensionContext;
 import vscode.TextEditor;
+import vscode.TextDocument;
 import js.Promise;
 import js.robotjs.RobotHelper;
 
@@ -59,9 +60,10 @@ class TestRobot
 		var prom;
 		try
 		{
-			prom = new Promise<Dynamic>(function(resolve,reject) {
+			prom = new Promise<TextEditor>(function(resolve,reject) {
 				setup()
 				.then(testKeyTap)
+				.then(checkResult)
 				.then(resolve,reject);
 			});
 		}
@@ -75,22 +77,43 @@ class TestRobot
 
 	private function setup() : Promise<TextEditor>
 	{
-		var prom = new Promise<TextEditor>(function(resolve,reject) {
-			return Vscode.workspace.openTextDocument({language:"haxe"})
-			.then(function(doc) {
-				return Vscode.window.showTextDocument(doc, null, false);
-			})
-			.then(resolve);
-		});
-		
-		return prom;
+		return openDoc();
 	}
 
-	private function testKeyTap(Void) : Promise<Bool>
+	private function openDoc() : Promise<TextEditor>
 	{
-		return new Promise<Bool>(function(resolve,reject) {
+		// We have to wrap the 'Thenables' returned by vscode APIs in promises until
+		// issue (https://github.com/HaxeFoundation/haxe/issues/6028) is fixed.
+		var open = function() 
+		{
+			return new Promise<TextDocument>(function(resolve,reject) {
+				Vscode.workspace.openTextDocument({language:"haxe"}).then(resolve,reject);
+			});
+		}
+
+		var show = function(doc:TextDocument)
+		{
+			return new Promise<TextEditor>(function(resolve,reject) {
+				Vscode.window.showTextDocument(doc, null, false).then(resolve,reject);
+			});
+		}
+
+		return open().then(show);		
+	}
+
+	private function testKeyTap(editor:TextEditor) : Promise<TextEditor>
+	{
+		return new Promise<TextEditor>(function(resolve,reject) {
 			RobotHelper.typeString("/*");
-			resolve(true);
+			resolve(editor);
+		});
+	}
+
+	private function checkResult(editor:TextEditor) : Promise<TextEditor>
+	{
+		return new Promise<TextEditor>(function(resolve,reject) {
+			// Check if document contains the keystrokes.
+			resolve(editor);
 		});
 	}
 
