@@ -7,7 +7,8 @@
     "tasks": [
         {
             "taskName": "build-lib",
-            "args": ["build.hxml"]
+            "args": ["build.hxml"],
+            "isBuildCommand": true
         },
         {
             "taskName": "build-simple-test",

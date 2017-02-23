@@ -25,7 +25,7 @@
             "runtimeExecutable": "${execPath}",
             "args": [
                 "--extensionDevelopmentPath=${workspaceRoot}/test/vscode-electron",
-                "--extensionTestsPath=${workspaceRoot}/test"
+                "--extensionTestsPath=${workspaceRoot}/test/vscode-electron"
             ],
             "stopOnEntry": false,
             "sourceMaps": true,
