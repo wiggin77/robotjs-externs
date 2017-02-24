@@ -27,6 +27,12 @@ import vscode.TextDocument;
 import js.Promise;
 import js.robotjs.RobotHelper;
 
+//clb:(error: Error, failures?: number) => void)
+typedef TestRunnerCallback = Dynamic->Int->Void;
+
+/**
+ *  Main extension class.
+ */
 class TestRobot
 {
 	private var m_editor:TextEditor;
@@ -52,10 +58,20 @@ class TestRobot
 	}
 
 	/**
+	 *  VSCode calls this method as entry point to a test runner.
+	 *  @param testsRoot - ??
+	 *  @param clb - ??
+	 */
+	public function run(testsRoot:String, clb:TestRunnerCallback) : Void
+	{
+		runTests().then(function(e){clb(null, 0);}, function(e){clb(null, -1);});
+	}
+
+	/**
 	 *  Called when the `testRobot` command is executed.
 	 *  @return Promise<Bool>
 	 */
-	private function runTests() : Promise<Dynamic>
+	private function runTests() : Promise<TextEditor>
 	{
 		var prom;
 		try
