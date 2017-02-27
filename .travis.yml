@@ -16,7 +16,7 @@ before_install:
   - sudo apt-get update -q
   - sudo apt-get install g++-4.8 libxtst-dev libpng++-dev -y -q
   - nvm install node
-  - nvm use
+  - nvm use node
   - sudo npm install -g node-gyp
 
 install:
