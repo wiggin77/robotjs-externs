@@ -23,10 +23,18 @@ install:
   # Install Haxelib libs
   - yes | haxelib install build.hxml
   - yes | haxelib install build-test-simple.hxml
+  - yes | haxelib install build-test-vscode.hxml
  
   # Install for simple test 
   - cd test/simple
   - npm install
+  - cd ../..
+
+  #Install for vscode test
+  - cd test/vscode-electron
+  - npm install
+  - npm run vscode:prepublish
+  - npm rebuild
   - cd ../..
 
 before_script:
@@ -44,7 +52,16 @@ script:
   # Build simple test
   - haxe build-test-simple.hxml
 
+  # Build vscode test
+  - haxe build-test-vscode.hxml
+
   # Run simple test
   - cd test/simple
   - nvm run node test.js
+  - cd ../..
+
+  # Run vscode test
+  - cd test/vscode-electron
+  - npm test
+  
   

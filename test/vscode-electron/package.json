@@ -5,7 +5,7 @@
 	"description": "Test Extension for VSCode using RobotJS",
 	"publisher": "Wiggin77",
     "license": "MIT",
-	"main": "./testrobot.js",
+	"main": "./test/testrobot.js",
 	"author": {
 		"name": "Wiggin77 (wiggin77@warpmail.net)"
 	},
@@ -24,12 +24,15 @@
 		]
 	},
 	"dependencies": {
-		"robotjs": "^0.4.5"
-	},
-	"devDependencies": {
-		"node-gyp": "3.5.0"
+		"robotjs": "^0.4.5",
+		"mocha": "^2.3.3",
+		"expect.js": "^0.2.0",
+		"node-gyp": "3.5.0",
+		"vscode": "^1.0.0"
 	},
 	"scripts": {
-		"rebuild": "npm rebuild --runtime=electron --target=1.4.6 --disturl=https://atom.io/download/atom-shell --abi=48"
+		"rebuild": "npm rebuild --runtime=electron --target=1.4.6 --disturl=https://atom.io/download/atom-shell --abi=48",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
 	}
 }

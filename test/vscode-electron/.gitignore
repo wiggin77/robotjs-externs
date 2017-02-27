@@ -1,3 +1,6 @@
 testrobot.js
 testrobot.js.map
 node_modules
+.vscode-test
+index.js
+index.js.map
