@@ -42,6 +42,8 @@ class RobotTestSuite
 	{
 		m_runner = new Runner();
 		m_runner.addCase(new testcases.TestKeyboard());
+		m_runner.addCase(new testcases.TestMouse());
+		m_runner.addCase(new testcases.TestScreen());
 	}
 
 	/**
@@ -95,8 +97,15 @@ class RobotReporter extends utest.ui.text.PrintReport
 		handler(this);
 		if(m_callback != null)
 		{
-			var error:Error = (result.stats.isOk) ? null : new Error("RobotJS test suite failed.");
-			m_callback(error);
+			if(result.stats.isOk)
+			{
+				m_callback(null, 0);
+			}
+			else
+			{
+				var error = new Error("RobotJS test suite failed.");
+				m_callback(error, result.stats.errors + result.stats.failures);
+			}
 		}
 	}
 }

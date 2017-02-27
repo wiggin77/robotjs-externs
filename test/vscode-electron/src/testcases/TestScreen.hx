@@ -21,14 +21,12 @@
 package testcases;
 
 import utest.Assert;
-import js.robotjs.RobotHelper;
 import js.robotjs.Robot;
-import vscode.TextEditor;
 
 /**
- *  Test cases for RobotJS keyboard methods.
+ *  Test cases for RobotJS screen methods.
  */
-class TestKeyboard
+class TestScreen
 {
 	/**
 	 *  Contructor
@@ -36,45 +34,30 @@ class TestKeyboard
 	public function new() {}
 
 	/**
-	 *  Test for `typeString`
+	 *  Test for `getScreenSize`
 	 */
-	public function testTypeString() : Void
+	public function testGetScreenSize() : Void
 	{
-		var done = Assert.createAsync(null, 10000);
+		var size = Robot.getScreenSize();
 
-		Helper.createDoc().then(function(editor:TextEditor) {
-			RobotHelper.typeString("/*");
-
-			// Give editor time to process the keystrokes.
-			Helper.delay(500, function() {
-				Assert.equals("/*", editor.document.lineAt(0).text);
-				done();
-			});
-		});
+		Assert.isTrue(size.width > 0, "screen width");
+		Assert.isTrue(size.height > 0, "screen height");
 	}
 
 	/**
-	 *  Test for `keyTap`
+	 *  Test for `getPixelColor`
 	 */
-	public function testKeyTap() : Void
+	public function testGetPixelColor() : Void
 	{
-		var done = Assert.createAsync(null, 5000);
+		var strColor = Robot.getPixelColor(50, 50);
 
-		Helper.createDoc().then(function(editor:TextEditor) {
-			Robot.keyTap("h");
-			Robot.keyTap("e");
-			Robot.keyTap("l");
-			Robot.keyTap("l");
-			Robot.keyTap("o");
-			Robot.keyTap("enter");
+		Assert.isTrue(strColor != null && strColor.length == 6);
 
-			// Give editor time to process the keystrokes.
-			Helper.delay(250, function() {
-				Assert.equals("hello", editor.document.lineAt(0).text);
-				done();
-			});
-		});
+		// Convert to Int.
+		var strHex = "0x" + strColor;
+
+		var iColor:Null<Int> = Std.parseInt(strHex);
+		Assert.notNull(iColor);
 	}
-
 
 }

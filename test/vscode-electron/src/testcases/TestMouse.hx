@@ -21,14 +21,12 @@
 package testcases;
 
 import utest.Assert;
-import js.robotjs.RobotHelper;
 import js.robotjs.Robot;
-import vscode.TextEditor;
 
 /**
- *  Test cases for RobotJS keyboard methods.
+ *  Test cases for RobotJS mouse methods.
  */
-class TestKeyboard
+class TestMouse
 {
 	/**
 	 *  Contructor
@@ -36,45 +34,40 @@ class TestKeyboard
 	public function new() {}
 
 	/**
-	 *  Test for `typeString`
+	 *  Test for `moveMouse`
 	 */
-	public function testTypeString() : Void
+	public function testMoveMouse() : Void
 	{
 		var done = Assert.createAsync(null, 10000);
 
-		Helper.createDoc().then(function(editor:TextEditor) {
-			RobotHelper.typeString("/*");
+		Robot.moveMouse(100, 50);
 
-			// Give editor time to process the keystrokes.
-			Helper.delay(500, function() {
-				Assert.equals("/*", editor.document.lineAt(0).text);
-				done();
-			});
+		Helper.delay(50, function() {
+			var pos = Robot.getMousePos();
+			
+			Assert.equals(100, pos.x, "pos.x");
+			Assert.equals(50, pos.y, "pos.y");
+			done();
 		});
 	}
 
 	/**
-	 *  Test for `keyTap`
+	 *  Test for `moveMouseSmooth`
 	 */
-	public function testKeyTap() : Void
+	public function testMoveMouseSmooth() : Void
 	{
 		var done = Assert.createAsync(null, 5000);
 
-		Helper.createDoc().then(function(editor:TextEditor) {
-			Robot.keyTap("h");
-			Robot.keyTap("e");
-			Robot.keyTap("l");
-			Robot.keyTap("l");
-			Robot.keyTap("o");
-			Robot.keyTap("enter");
+		Robot.moveMouseSmooth(30, 40);
 
-			// Give editor time to process the keystrokes.
-			Helper.delay(250, function() {
-				Assert.equals("hello", editor.document.lineAt(0).text);
-				done();
-			});
+		Helper.delay(1000, function() {
+			var pos = Robot.getMousePos();
+			
+			// Sometimes we get an off-by one error with mouse smooth.
+			Assert.isTrue(pos.x >= 29 && pos.x <= 31, "pos.x");
+			Assert.isTrue(pos.y >= 39 && pos.y <= 41, "pos.y");
+			done();
 		});
 	}
-
 
 }
