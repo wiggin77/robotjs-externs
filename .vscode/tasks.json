@@ -1,7 +1,24 @@
 {
     "version": "0.1.0",
     "command": "haxe",
-    "args": ["build.hxml"],
+    "showOutput": "always",
+    "suppressTaskName": true,
+    "echoCommand": true,
+    "tasks": [
+        {
+            "taskName": "build-lib",
+            "args": ["build.hxml"],
+            "isBuildCommand": true
+        },
+        {
+            "taskName": "build-simple-test",
+            "args": ["build-test-simple.hxml"]
+        },
+        {
+            "taskName": "build-vscode-test",
+            "args": ["build-test-vscode.hxml"]
+        }
+    ],
     "problemMatcher": {
         "owner": "haxe",
         "pattern": {
@@ -16,3 +33,5 @@
         }
     }
 }
+
+

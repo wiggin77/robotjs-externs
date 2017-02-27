@@ -3,6 +3,11 @@ sudo: true
 git:
   depth: 3
 
+notifications:
+  email:
+    on_success: always
+    on_failure: always
+
 env:
   - CXX=g++-4.8
 
@@ -11,22 +16,30 @@ before_install:
   - sudo apt-get update -q
   - sudo apt-get install g++-4.8 libxtst-dev libpng++-dev -y -q
   - nvm install node
-  #- sudo npm install -g node-gyp
+  - nvm use node
+  - npm install -g node-gyp
 
 install:
 
   # Install Haxelib libs
   - yes | haxelib install build.hxml
-  - yes | haxelib install test/simple/build-test-simple.hxml
+  - yes | haxelib install build-test-simple.hxml
+  - yes | haxelib install build-test-vscode.hxml
  
   # Install for simple test 
   - cd test/simple
   - npm install
   - cd ../..
 
+  #Install for vscode test
+  - cd test/vscode-electron
+  - npm install
+  - npm rebuild --runtime=electron --target=1.4.6 --disturl=https://atom.io/download/atom-shell --abi=48
+  - cd ../..
+
 before_script:
 
-  # Need GUI
+  # Need GUI (TODO - only do this for Linux)
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
   - sleep 3 # give xvfb some time to start
@@ -37,9 +50,18 @@ script:
   - haxe build.hxml
 
   # Build simple test
-  - cd test/simple
   - haxe build-test-simple.hxml
 
+  # Build vscode test
+  - haxe build-test-vscode.hxml
+
   # Run simple test
+  - cd test/simple
   - nvm run node test.js
+  - cd ../..
+
+  # Run vscode test
+  - cd test/vscode-electron
+  - npm test
+  
   

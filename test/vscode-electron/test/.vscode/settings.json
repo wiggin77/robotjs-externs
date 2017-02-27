@@ -1,0 +1,17 @@
+{
+	// Codedox settings	
+	"codedox": {
+		"fileheader": {
+			"templates": {
+				"*": [
+					"${license_mit}"
+				]
+			},
+			"params": {
+				"haxe": {
+					"company": "Wiggin77"
+				}
+			}
+		}
+	}
+}

@@ -1,8 +1,0 @@
--cp ../../src
--cp .
--lib hxnodejs
--debug
--js test.js
--main Test
-
-

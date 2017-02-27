@@ -4,15 +4,24 @@ Haxe externs for [RobotJS](http://robotjs.io/).  RobotJS is a desktop automation
 
 Inject keystrokes and mouse moves into a Node.js application.  Also capture mouse position and screen pixels.
 
+## Samples
+A simple test app for Node.js is [here](./test/simple/README.md).
+
+A test app for VSCode/Electron is... **TODO**.
+
 ## Installation
+Install `robot-externs` lib for Haxe:
 ```
 haxelib git robotjs-externs https://github.com/wiggin77/robotjs-externs.git
-
+```
+Install RobotJS module. From the directory of the project for which you want to add RobotJS support (i.e. directory containing `package.json`):
+```
 npm install robotjs
 ```
+This will create a `node_modules` directory within your project directory.
 
 ## Building RobotJS
-`npm` will install prebuilt binaries for Windows, Mac, and Linux. If you want to build it yourself, see [here](http://robotjs.io/docs/building).
+`npm` will install prebuilt binaries for Windows, Mac, and Linux. If you need to build it yourself, see [here](http://robotjs.io/docs/building).
 
 To build for Electron see [here](http://robotjs.io/docs/electron).
 

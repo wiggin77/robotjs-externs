@@ -8,8 +8,11 @@ Simple test to ensure RobotJS is working on your platform.
 ## Build
 From this directory...
 ```
-npm install
+cd ../../
 haxe build-test-simple.hxml
+
+cd test/simple
+npm install
 
 node test.js
 ```
