@@ -16,6 +16,7 @@ before_install:
   - sudo apt-get update -q
   - sudo apt-get install g++-4.8 libxtst-dev libpng++-dev -y -q
   - nvm install node
+  - nvm use
   - sudo npm install -g node-gyp
 
 install:
@@ -33,7 +34,6 @@ install:
   #Install for vscode test
   - cd test/vscode-electron
   - npm install
-  #- npm run vscode:prepublish
   - npm rebuild --runtime=electron --target=1.4.6 --disturl=https://atom.io/download/atom-shell --abi=48
   - cd ../..
 
