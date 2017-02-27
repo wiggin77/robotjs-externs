@@ -7,13 +7,13 @@
             "request": "launch",
             "runtimeExecutable": "${execPath}",
             "args": [
-                "${workspaceRoot}/test/vscode-electron/test_proj",
+                "${workspaceRoot}/test/vscode-electron/test",
                 "--extensionDevelopmentPath=${workspaceRoot}/test/vscode-electron"
             ],
             "stopOnEntry": false,
             "sourceMaps": true,
             "outFiles": [
-				"${workspaceRoot}/test/vscode-electron/**/*.js"
+				"${workspaceRoot}/test/vscode-electron/test/**/*.js"
 			],
 			"preLaunchTask": "build-vscode-test",
 			"internalConsoleOptions": "openOnSessionStart",
@@ -25,14 +25,14 @@
             "request": "launch",
             "runtimeExecutable": "${execPath}",
             "args": [
-                "${workspaceRoot}/test/vscode-electron/test_proj",
+                "${workspaceRoot}/test/vscode-electron/test",
                 "--extensionDevelopmentPath=${workspaceRoot}/test/vscode-electron",
-                "--extensionTestsPath=${workspaceRoot}/test/vscode-electron"
+                "--extensionTestsPath=${workspaceRoot}/test/vscode-electron/test"
             ],
             "stopOnEntry": false,
             "sourceMaps": true,
             "outFiles": [
-				"${workspaceRoot}/test/vscode-electron/**/*.js"
+				"${workspaceRoot}/test/vscode-electron/test/**/*.js"
 			],
 			"preLaunchTask": "build-vscode-test",
 			"internalConsoleOptions": "openOnSessionStart",

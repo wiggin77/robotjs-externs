@@ -1,8 +1,9 @@
 -cp src
--cp test/vscode-electron
+-cp test/vscode-electron/src
 -lib vscode
+-lib utest
+-D js-flatten
 -debug
--js test/vscode-electron/testrobot.js
-TestRobot
-
-
+-js test/vscode-electron/test/index.js
+Runner
+RobotExtension
