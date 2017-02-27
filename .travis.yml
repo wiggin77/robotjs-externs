@@ -33,7 +33,7 @@ install:
   #Install for vscode test
   - cd test/vscode-electron
   - npm install
-  - npm run vscode:prepublish
+  #- npm run vscode:prepublish
   - npm rebuild
   - cd ../..
 
