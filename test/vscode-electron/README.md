@@ -19,6 +19,6 @@ npm rebuild --runtime=electron --target=1.4.6 --disturl=https://atom.io/download
 
 npm test
 ```
-Note: The script above rebuilds RobotJS with Electron 1.4.6 with ships with VSCode 1.9.1.  Change `target=1.4.6` to match the version of Electron you are using. 
+Note: The script above rebuilds RobotJS for Electron 1.4.6 which ships with VSCode 1.10.1.  Change `target=1.4.6` to match the version of Electron you are using. 
 For VSCode, you can find the version of Electron by checking the `package.json` for the version of VSCode you are using (e.g. [package.json](https://github.com/Microsoft/vscode/blob/master/package.json)).
 

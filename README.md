@@ -7,7 +7,7 @@ Inject keystrokes and mouse moves into a Node.js application.  Also capture mous
 ## Samples
 A simple test app for Node.js is [here](./test/simple/README.md).
 
-A test app for VSCode/Electron is... **TODO**.
+A sample app for VSCode/Electron is [here](./test/vscode-electron/README.md).
 
 ## Installation
 Install `robot-externs` lib for Haxe:
