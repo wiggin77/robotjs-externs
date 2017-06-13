@@ -50,7 +50,12 @@ class TestKeyboard
 				Assert.equals("/*", editor.document.lineAt(0).text);
 				done();
 			});
-		});
+		}, onReject);
+	}
+
+	public function onReject(err:Dynamic) : Void
+	{
+		trace(err);
 	}
 
 	/**
@@ -69,11 +74,11 @@ class TestKeyboard
 			Robot.keyTap("enter");
 
 			// Give editor time to process the keystrokes.
-			Helper.delay(250, function() {
+			Helper.delay(500, function() {
 				Assert.equals("hello", editor.document.lineAt(0).text);
 				done();
 			});
-		});
+		}, onReject);
 	}
 
 
